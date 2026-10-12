@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mark-dj Villar | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+  <style type="text/tailwindcss">
+    @theme {  
+      --color-ink: #000000;      /* page background */
+      --color-panel: #1c1c20;    /* dark cards and frames */
+      --color-coral: #ff4d6d;    /* main accent */
+      --color-peach: #ffb08a;    /* second accent / gradient end */
+      --color-blush: #f3d9de;    /* body text on dark */
+      --color-mute: #c9b8bc;     /* nav links */
+      --color-deep: #2a0510;     /* dark text on coral buttons */
+      --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+  </style>
+</head>
+<body class="bg-ink font-sana text-white antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus: rounded-md focus:bg-coral focus:px-4 focus:py-2 focus:text-deep">Skip to content</a>
+
+    <!--== HEADER / NAV === -->
+    <header class="sticky top-0 z-40 border-b borderwhite/10 bg-ink/90 backdrop-blur">
+    <div class="relative mx-ato flex h-20 max-w-7x1 items-center justify-between px-6 lg:px-16">
+
+        <!--== LOGO === -->
+        <a href="#home" class="flex items-center gap-3">
+            <span aria-hidden="true" class="flex h-11 w-[54px] items-center justify-center rounded-x1 bg-white/90 font-extrabold text-deeep">MV</span>
+            <span class="leading-tight">
+                <span class="block text-base font-bold">Mark-dj Villar</span>
+                <span class="block text-mono text-[11px] font-medium uppercase tracking-wider text-peach">Vibe Coder &bull; Y3 BSIT</span>
+            </span>
+        </a>
+
+        <!--== NAVIGATION === -->
+        <nav id="site-nav" aria-label="Main" class="absolute inset-x-0 top-full hidden border-b border-white/10 bg-ink px-6 py-3 md:static md:block md:border-none md:bg-transparent md:p-0">
+            <ul class="flex flex-col gap-1 md:flex-row md:rounded-xl md:bg-panel md:p-1">
+                <li><a href="#home" aria-current="true" class="nav-link block rounded-lg px-4 py-2 text-sm text-mute hover:text-white aria-[current=true]:bg-coral aria-[current=true]:text-deep md:text-base">Home</a></li>
+                 <li><a href="#about" class="nav-link block rounded-lg px-4 py-2 text-sm text-mute hover:text-white aria-[current=true]:bg-coral aria-[current=true]:font-bold aria-[current=true]:text-deep md:text-base">About</a></li>
+                 <li><a href="#skills" class="nav-link block rounded-lg px-4 py-2 text-sm text-mute hover:text-white aria-[current=true]:bg-coral aria-[current=true]:font-bold aria-[current=true]:text-deep md:text-base">Skills</a></li>
+                 <li><a href="#projects" class="nav-link block rounded-lg px-4 py-2 text-sm text-mute hover:text-white aria-[current=true]:bg-coral aria-[current=true]:font-bold aria-[current=true]:text-deep md:text-base">Projects</a></li>
+                 <li><a href="#contacts" class="nav-link block rounded-lg px-4 py-2 text-sm text-mute hover:text-white aria-[current=true]:bg-coral aria-[current=true]:font-bold aria-[current=true]:text-deep md:text-base">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!--== RIGHT-SIDE AVATAR === -->
+        <div class="flex items-center gap-3">
+            <a href="#contacts" class="hidden rounded-md bg-coral px-4 py-1.5 text-sm font-bold text-deep hover:opacity-90 sm:inline-block">Get in Touch</a>
+            <img src="../images/dj.jpg" alt="Mark-dj Villar" class="h-10 w-10 rounded-full object-cover" />
+        </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
