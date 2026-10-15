@@ -27,14 +27,26 @@ document.addEventListener("keydown", (e) => {
 
 /* ===== 2. Active nav highlight (click + scroll) ===== */
 const navLinks = document.querySelectorAll(".nav-link");
+const navIndicator = nav.querySelector(".nav-indicator");
 const sections = Array.from(document.querySelectorAll("main section[id]"));
 let clickLock = false;
 let lockTimer;
+
+function positionNavIndicator() {
+  const activeLink = nav.querySelector('.nav-link[aria-current="true"]');
+  if (!activeLink || !navIndicator) return;
+
+  navIndicator.style.width = `${activeLink.offsetWidth}px`;
+  navIndicator.style.height = `${activeLink.offsetHeight}px`;
+  navIndicator.style.transform = `translate(${activeLink.offsetLeft}px, ${activeLink.offsetTop}px)`;
+  navIndicator.classList.add("is-visible");
+}
 
 function setActive(id) {
   navLinks.forEach((link) => {
     link.setAttribute("aria-current", String(link.getAttribute("href") === "#" + id));
   });
+  positionNavIndicator();
 }
 
 navLinks.forEach((link) => {
@@ -44,9 +56,17 @@ navLinks.forEach((link) => {
     setActive(id);
     clickLock = true;
     clearTimeout(lockTimer);
-    lockTimer = setTimeout(() => { clickLock = false; }, 900);
+    lockTimer = setTimeout(() => { clickLock = false; updateOnScroll(); }, 1500);
   });
 });
+
+window.addEventListener("scrollend", () => {
+  clickLock = false;
+  clearTimeout(lockTimer);
+  updateOnScroll();
+});
+
+window.addEventListener("resize", positionNavIndicator);
 
 function updateOnScroll() {
   if (clickLock || sections.length === 0) return;
