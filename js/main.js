@@ -14,6 +14,7 @@ menuBtn.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("hidden") === false;
   menuBtn.setAttribute("aria-expanded", String(isOpen));
   menuBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  if (isOpen) positionNavIndicator();
 });
 nav.addEventListener("click", (e) => {
   if (e.target.closest("a")) closeMenu();
@@ -34,7 +35,7 @@ let lockTimer;
 
 function positionNavIndicator() {
   const activeLink = nav.querySelector('.nav-link[aria-current="true"]');
-  if (!activeLink || !navIndicator) return;
+  if (!activeLink || !navIndicator || window.getComputedStyle(nav).display === "none") return;
 
   navIndicator.style.width = `${activeLink.offsetWidth}px`;
   navIndicator.style.height = `${activeLink.offsetHeight}px`;
@@ -81,6 +82,11 @@ function updateOnScroll() {
   }
   setActive(current);
 }
+
+// window.addEventListener('scroll', () => {
+//   const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+//   if (atBottom && sections.length) setActive(sections[sections.length - 1].id);
+// }, { passive: true });
 
 let ticking = false;
 window.addEventListener("scroll", () => {
